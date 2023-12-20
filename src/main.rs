@@ -88,8 +88,6 @@ fn main() {
         Err(e) => eprintln!("waitpid failed: {}", e),
         _ => error!("Error: Unexpected waitpid result"),
     }
-
-    info!("Finished, cleaning & exit");
 }
 
 fn c_process(args: &Args, veth_peer_idx: u32) -> isize {
