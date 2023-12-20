@@ -34,7 +34,7 @@ cargo build --release
 Run the server using the command below. The arguments have default values, so you can omit them if the defaults work for your setup.
 
 ```bash
-sudo RUST_LOG=info cargo run -- --server-addr [server address] --handler [handler] --bridge-name [bridge name] --bridge-ip [bridge IP] --subnet [subnet mask] --ns-ip [namespace IP]
+sudo RUST_LOG=info ./isoserver--server-addr [server address] --handler [handler] --bridge-name [bridge name] --bridge-ip [bridge IP] --subnet [subnet mask] --ns-ip [namespace IP]
 ```
 
 Values
