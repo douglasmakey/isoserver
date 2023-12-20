@@ -1,4 +1,4 @@
-# Isolated Network Namespace Servers in Rust
+# Isolated Network Namespace for Echo Servers in Rust
 
 This repository hosts a simple Rust-based proof of concept (PoC) for implementing TCP and UDP echo servers, running in its own isolated network namespace. It's a exploration into advanced networking concepts in Rust, leveraging the power of network namespaces for process isolation and the Tokio runtime for asynchronous operations.
 
