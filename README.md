@@ -34,7 +34,7 @@ cargo build --release
 Run the server using the command below. The arguments have default values, so you can omit them if the defaults work for your setup.
 
 ```bash
-cargo run -- --server-addr [server address] --handler [handler] --bridge-name [bridge name] --bridge-ip [bridge IP] --subnet [subnet mask] --ns-ip [namespace IP]
+sudo RUST_LOG=info cargo run -- --server-addr [server address] --handler [handler] --bridge-name [bridge name] --bridge-ip [bridge IP] --subnet [subnet mask] --ns-ip [namespace IP]
 ```
 
 Values
@@ -50,7 +50,7 @@ Values
 * TCP Echo Server
 
 ```bash
-cargo run -- --server-addr "0.0.0.0:8080" --ns-ip 172.18.0.2
+sudo RUST_LOG=info ./isoserver --server-addr "0.0.0.0:8080" --ns-ip 172.18.0.2
 ```
 
 This runs a TCP echo server with the default network configuration.
@@ -58,7 +58,7 @@ This runs a TCP echo server with the default network configuration.
 * UDP Echo Server
 
 ```bash
-cargo run -- --server-addr "0.0.0.0:8081" --handler udp-echo --ns-ip 172.18.0.3
+sudo RUST_LOG=info ./isoserver --server-addr "0.0.0.0:8081" --handler udp-echo --ns-ip 172.18.0.3
 ```
 
 This starts a UDP echo server, also using default network settings, but with a different namespace IP.
