@@ -1,0 +1,16 @@
+[package]
+name = "isoserver"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = { version = "4.4.11", features = ["derive"] }
+env_logger = "0.10.1"
+futures = { version="0.3.29" }
+log = "0.4.20"
+nix = { version = "0.27.1", features = ["sched"] }
+rand = "0.8.5"
+rtnetlink = "0.14.0"
+tokio = { version = "1.35.0", features = ["full"] }
