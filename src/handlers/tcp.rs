@@ -13,7 +13,7 @@ impl TcpServer {
         Self { address }
     }
 
-    pub async fn echo(self) -> Result<(), io::Error> {
+    pub async fn run(self) -> Result<(), io::Error> {
         let listener = TcpListener::bind(&self.address).await?;
         info!("TCP echo server listening on: {}", self.address);
 

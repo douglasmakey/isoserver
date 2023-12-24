@@ -15,7 +15,7 @@ impl UdpServer {
         Self { address }
     }
 
-    pub async fn echo(self) -> Result<(), io::Error> {
+    pub async fn run(self) -> Result<(), io::Error> {
         let socket = UdpSocket::bind(&self.address).await?;
         info!("UDP echo server listening on: {}", socket.local_addr()?);
         let r = Arc::new(socket);
