@@ -43,7 +43,7 @@ sudo RUST_LOG=info ./isoserver--server-addr [server address] --handler [handler]
 
 Values
 * --server-addr: No default value, must be specified (e.g., "0.0.0.0:8080").
-* --handler: Default is "tcp-echo". Options are "tcp-echo" or "udp-echo".
+* --handler: Default is "tcp-echo". Options are "tcp-echo", "http" or "udp-echo".
 * --bridge-name: Default is "isobr0".
 * --bridge-ip: Default is "172.18.0.1".
 * --subnet: Default is "16".
