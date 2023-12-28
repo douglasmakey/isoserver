@@ -1,10 +1,9 @@
+use crate::string_helpers::random_suffix;
 use futures::TryStreamExt;
 use log::info;
-use rand::distributions::{Alphanumeric, DistString};
 use rtnetlink::{new_connection, AddressHandle, Handle};
-use std::{net::Ipv4Addr, str::FromStr};
-
 use std::fmt;
+use std::{net::Ipv4Addr, str::FromStr};
 
 #[derive(Debug)]
 pub enum NetworkError {
@@ -44,10 +43,6 @@ impl From<std::io::Error> for NetworkError {
     fn from(err: std::io::Error) -> Self {
         NetworkError::Other(err)
     }
-}
-
-fn random_suffix() -> String {
-    Alphanumeric.sample_string(&mut rand::thread_rng(), 4)
 }
 
 pub async fn prepare_net(
@@ -152,7 +147,7 @@ async fn create_veth_pair(bridge_idx: u32) -> Result<(u32, u32), NetworkError> {
     tokio::spawn(connection);
 
     // create veth interfaces
-    let veth: String = format!("veth{}", random_suffix());
+    let veth: String = format!("veth{}", random_suffix(4));
     let veth_2: String = format!("{}_peer", veth.clone());
 
     handle

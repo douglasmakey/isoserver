@@ -1,5 +1,6 @@
 mod handlers;
 mod net;
+mod string_helpers;
 
 use crate::handlers::execute;
 use crate::net::{join_veth_to_ns, prepare_net, setup_veth_peer};
@@ -56,7 +57,7 @@ fn main() {
         clone(
             cb,
             &mut tmp_stack,
-            CloneFlags::CLONE_NEWNET,
+            CloneFlags::CLONE_NEWNET | CloneFlags::CLONE_NEWUTS,
             Some(Signal::SIGCHLD as i32),
         )
     }
@@ -92,6 +93,9 @@ fn main() {
 
 fn c_process(args: &Args, veth_peer_idx: u32) -> isize {
     info!("Child process (PID: {}) started", nix::unistd::getpid());
+    // Set the hostname of the new process
+    let ns_hostname = format!("isoserver-{}", string_helpers::random_suffix(5));
+    nix::unistd::sethostname(ns_hostname).expect("Failed to set hostname");
 
     // Spawn a new blocking task on the current runtime
     let rt = tokio::runtime::Runtime::new().expect("Failed to create Tokio runtime");
