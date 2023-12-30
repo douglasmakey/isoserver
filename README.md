@@ -2,7 +2,7 @@
 
 This repository hosts a simple Rust-based proof of concept (PoC) for implementing TCP and UDP echo servers, running in its own isolated network namespace. It's a exploration into advanced networking concepts in Rust, leveraging the power of network namespaces for process isolation and the Tokio runtime for asynchronous operations.
 
-I wrote a tiny article about this porject [here](https://www.kungfudev.com/blog/2023/12/21/simplified-networking-crafting-isolated-echo-server-in-rust).
+I wrote a tiny article about this project [here](https://www.kungfudev.com/blog/2023/12/21/simplified-networking-crafting-isolated-echo-server-in-rust).
 
 ## Getting Started
 
